@@ -1,0 +1,29 @@
+.poke-card {
+	border: 2px solid lightgreen;
+	width: 200px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.poke-img {
+	border: 1px solid gray;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+    justify-self: center;
+}
+
+.poke-img img {
+	height: 100%;
+	width: 100%;
+	background-repeat: no-repeat;
+}
+
+.poke-title {
+	background-color: lightgreen;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}

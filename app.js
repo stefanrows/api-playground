@@ -10,17 +10,34 @@ const getJoke = () => {
 };
 
 const getPokemon = () => {
-	fetch('https://pokeapi.co/api/v2/pokemon/pikachu').then((response) => response.json()).then((data) => {
-		console.log(data);
-		name = data.name;
-		const nameCapitalized = name.charAt(0).toUpperCase() + name.slice(1);
-		const p = document.createElement('p');
-		p.textContent = `What about:${nameCapitalized}`;
+	const selectForm = document.querySelector('#input');
+	const submitButton = document.querySelector('#submit');
 
-		document.getElementById('pokemonDisplay').appendChild(p);
-		const img = document.createElement('img');
-		img.src = data.sprites.front_default;
-		document.getElementById('pokemonDisplay').appendChild(img);
+	pokeFilter = '';
+
+	selectForm.addEventListener('change', function(e) {
+		e.preventDefault();
+		pokeFilter = e.target.value;
+		console.log(pokeFilter);
+		url = `https://pokeapi.co/api/v2/pokemon/${pokeFilter}`;
+		console.log(url);
+		fetch(`https://pokeapi.co/api/v2/pokemon/${pokeFilter}`).then((response) => response.json()).then((data) => {
+			console.log(data);
+			// Card Img
+			const img = document.createElement('img');
+			img.src = data.sprites.front_default;
+			document.querySelector('.poke-img').appendChild(img);
+			//Card Title
+			pokemonName = data.name;
+			const nameCapitalized = pokemonName.charAt(0).toUpperCase() + pokemonName.slice(1);
+			const h3 = document.createElement('h3');
+			h3.textContent = nameCapitalized;
+			document.querySelector('.poke-title').appendChild(h3);
+
+			//Card Text
+
+			//Card Button
+		});
 	});
 };
 

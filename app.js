@@ -27,6 +27,7 @@ const getPokemon = () => {
         // Card Img
         const img = document.createElement('img');
         img.src = data.sprites.front_default;
+        document.querySelector('.poke-img').innerHTML = '';
         document.querySelector('.poke-img').appendChild(img);
         //Card Title
         pokemonName = data.name;
@@ -34,6 +35,7 @@ const getPokemon = () => {
           pokemonName.charAt(0).toUpperCase() + pokemonName.slice(1);
         const h3 = document.createElement('h3');
         h3.textContent = nameCapitalized;
+        document.querySelector('.poke-title').innerHTML = '';
         document.querySelector('.poke-title').appendChild(h3);
 
         //Card Text

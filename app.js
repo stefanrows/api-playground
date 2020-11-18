@@ -43,6 +43,7 @@ const getPokemon = () => {
           option.text = data.results[i].name;
           option.value = data.results[i].name;
           dropdown.add(option);
+          
         }
       });
     })
